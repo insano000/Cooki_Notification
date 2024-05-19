@@ -1,0 +1,68 @@
+/* Estilos para el login */
+.login-container {
+  max-width: 300px;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.login-container button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Estilos para la notificación de cookies */
+.cookie-notification {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-notification.visible {
+  transform: translateY(0);
+}
+
+.cookie-notification p {
+  margin-bottom: 10px;
+}
+
+.cookie-notification button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.cookie-notification button:hover {
+  background-color: #3e8e41;
+}
+
+/* Estilos para la página de bienvenida */
+.welcome-container {
+  text-align: center;
+  margin-top: 20%;
+}
