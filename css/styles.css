@@ -66,3 +66,22 @@
   text-align: center;
   margin-top: 20%;
 }
+
+    /* Estilos para el diálogo de cookies */
+    .cookie-dialog {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      text-align: center;
+    }
+    .cookie-dialog button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }

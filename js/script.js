@@ -1,47 +1,30 @@
-// Mostrar la notificación de las cookies
-const cookieNotification = document.querySelector('.cookie-notification');
-const acceptButton = document.querySelector('.accept-cookies');
-const rejectButton = document.querySelector('.reject-cookies');
+document.addEventListener("DOMContentLoaded", function() {
+  const cookieDialog = document.getElementById('cookie-dialog');
+  const acceptCookiesButton = document.getElementById('accept-cookies');
+  const rejectCookiesButton = document.getElementById('reject-cookies');
 
-// Mostrar la notificación de cookies después de 5 segundos
-setTimeout(() => {
-  cookieNotification.classList.add('visible');
-}, 5000);
+  setTimeout(function() {
+    cookieDialog.style.display = 'block';
+  }, 500);
 
-// aceptación de cookies
-acceptButton.addEventListener('click', () => {
-  document.cookie = 'cookies_accepted=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
-  cookieNotification.classList.remove('visible');
-});
+  acceptCookiesButton.addEventListener('click', function() {
+    alert("Ha aceptado el uso de cookies.");
+    cookieDialog.style.display = 'none';
+  });
 
-//  rechazo de cookies
-rejectButton.addEventListener('click', () => {
-  document.cookie = 'cookies_accepted=false; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
-  cookieNotification.classList.remove('visible');
-});
+  rejectCookiesButton.addEventListener('click', function() {
+    alert("Ha rechazado el uso de cookies.");
+    cookieDialog.style.display = 'none';
+  });
 
-// formulario de login
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const username = document.getElementById('username').value;
-  document.cookie = `username=${username}; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/`;
-  window.location.href = 'welcome.html';
-});
-
-// Mostrar el mensaje de bienvenida
-window.addEventListener('load', () => {
-  const cookies = document.cookie.split('; ').reduce((acc, cookie) => {
-    const [name, value] = cookie.split('=');
-    acc[name] = value;
-    return acc;
-  }, {});
-// hola mundos
-  if (document.getElementById('welcome-message')) {
-    const welcomeMessage = document.getElementById('welcome-message');
-    if (cookies.cookies_accepted === 'true' && cookies.username) {
-      welcomeMessage.textContent = `Hola Mundo, ${cookies.username}`;
+  const loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    if (username) {
+      window.location.href = "welcome.html";
     } else {
-      welcomeMessage.textContent = 'Hola Mundo Anónimo';
+      window.location.href = "anonimo.html";
     }
-  }
+  });
 });
