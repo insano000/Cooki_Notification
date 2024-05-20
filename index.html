@@ -16,6 +16,43 @@
     </form>
   </div>
 
-  <div class=".cookie-notification">
+  <div class="cookie-dialog" id="cookie-dialog">
     <p>Este sitio web utiliza cookies para mejorar su experiencia. Al continuar utilizando este sitio, acepta nuestro uso de cookies.</p>
-    <button class="accept-cookies">Accept</button>
+    <button id="accept-cookies">Acepto</button>
+    <button id="reject-cookies">Rechazo</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const cookieDialog = document.getElementById('cookie-dialog');
+      const acceptCookiesButton = document.getElementById('accept-cookies');
+      const rejectCookiesButton = document.getElementById('reject-cookies');
+
+      setTimeout(function() {
+        cookieDialog.style.display = 'block';
+      }, 500); // 0.5 segundos
+
+      acceptCookiesButton.addEventListener('click', function() {
+        alert("Ha aceptado el uso de cookies.");
+        cookieDialog.style.display = 'none';
+      });
+
+      rejectCookiesButton.addEventListener('click', function() {
+        alert("Ha rechazado el uso de cookies.");
+        cookieDialog.style.display = 'none';
+      });
+
+      const loginForm = document.getElementById('login-form');
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        if (username) {
+          window.location.href = "welcome.html"; // Redirige a welcome.html si hay un nombre de usuario
+        } else {
+          window.location.href = "anonimo.html"; // Redirige a anonimo.html si no hay nombre de usuario
+        }
+      });
+    });
+  </script>
+</body>
+</html>
